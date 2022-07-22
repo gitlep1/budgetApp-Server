@@ -47,7 +47,7 @@ transaction.post("/", (req, res) => {
   }
 });
 
-// DO MONGODB AS A STRETCH GOAL WITH SCHEMA AND MODEL
+// DO MONGODB AS A STRETCH GOAL WITH SCHEMA AND MODEL \\
 // transaction.use("/:id", (req, res, next) => {
 //   Model.findById(req.params.id).then((transaction) => {
 //     if (transaction) {
