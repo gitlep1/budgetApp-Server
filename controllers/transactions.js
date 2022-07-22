@@ -26,9 +26,25 @@ transaction.get("/:id", (req, res) => {
 });
 
 transaction.post("/", (req, res) => {
-  const newTransaction = {};
-  transactionArray.push(req.body);
-  res.json(transactionArray[transactionArray.length - 1]);
+  const newTransaction = {
+    item_name: req.body.item_name,
+    amount: req.body.amount,
+    date: req.body.date,
+    from: req.body.from,
+    category: req.body.category,
+  };
+  if (
+    typeof newTransaction.item_name === "string" &&
+    typeof newTransaction.amount === "number" &&
+    typeof newTransaction.date === "string" &&
+    typeof newTransaction.from === "string" &&
+    typeof newTransaction.category === "string"
+  ) {
+    transactionArray.push(newTransaction);
+    res.json(newTransaction);
+  } else {
+    res.status(400).send("Error: Invalid transaction datatypes");
+  }
 });
 
 // DO MONGODB AS A STRETCH GOAL WITH SCHEMA AND MODEL
@@ -52,3 +68,5 @@ transaction.post("/", (req, res) => {
 //     res.status(500).json({ message: err.message });
 //   }
 // });
+
+module.exports = transaction;
