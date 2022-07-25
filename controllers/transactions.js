@@ -23,7 +23,11 @@ transaction.get("/:id", (req, res) => {
 
   if (transactionArray[id]) {
     res.json(transactionArray[id]);
-    console.log("===== GET TRANSACTIONS: ", transactionArray[id], "=====");
+    console.log(
+      "===== GET MATCHING TRANSACTION: ",
+      transactionArray[id],
+      "====="
+    );
   } else {
     res.status(404).redirect("/transaction-error");
   }
