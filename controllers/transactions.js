@@ -22,6 +22,7 @@ transaction.get("/:id", (req, res) => {
 
   if (transactionArray[id]) {
     res.json(transactionArray[id]);
+    console.log("===== GET TRANSACTIONS: ", transactionArray, "=====");
   } else {
     res.status(404).redirect("/transaction-error");
   }
@@ -71,6 +72,7 @@ transaction.put("/:id", (req, res) => {
   ) {
     transactionArray[id] = updatedTransaction;
     res.json(updatedTransaction);
+    console.log("===== UPDATING TRANSACTION: ", updatedTransaction, "=====");
   } else {
     res.status(400).send("Error: Invalid transaction datatypes");
   }
@@ -82,6 +84,7 @@ transaction.delete("/:id", (req, res) => {
   if (transactionArray[id]) {
     transactionArray.splice(id, 1);
     res.status(204).send("Transaction deleted");
+    console.log("===== DELETED TRANSACTION =====");
   } else {
     res.status(404).redirect("/transaction-error");
   }
