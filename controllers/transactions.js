@@ -15,14 +15,15 @@ transaction.use("/:id", (req, res, next) => {
 
 transaction.get("/", (req, res) => {
   res.json(transactionArray);
+  console.log("===== GET TRANSACTIONS: ", transactionArray, "=====");
 });
 
 transaction.get("/:id", (req, res) => {
   let id = req.params.id;
 
   if (transactionArray[id]) {
-    console.log("===== GET TRANSACTIONS: ", transactionArray, "=====");
     res.json(transactionArray[id]);
+    console.log("===== GET TRANSACTIONS: ", transactionArray[id], "=====");
   } else {
     res.status(404).redirect("/transaction-error");
   }
