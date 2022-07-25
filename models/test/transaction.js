@@ -8,7 +8,7 @@ module.exports = [
   },
   {
     item_name: "cat food",
-    amount: 50,
+    amount: -50,
     date: "01/01/2022",
     from: "petco",
     category: "food",
@@ -19,5 +19,12 @@ module.exports = [
     date: "01/01/2022",
     from: "bank",
     category: "savings",
+  },
+  {
+    item_name: "bus fare",
+    amount: -100.69,
+    date: "05/10/3000",
+    from: "metro",
+    category: "transportation",
   },
 ];
