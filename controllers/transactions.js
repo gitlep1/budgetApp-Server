@@ -45,6 +45,7 @@ transaction.post("/", (req, res) => {
   ) {
     transactionArray.push(newTransaction);
     res.json(newTransaction);
+    console.log("===== INCOMING TRANSACTION: ", newTransaction, "=====");
   } else {
     res.status(400).send("Error: Invalid transaction datatypes");
   }
