@@ -2,7 +2,6 @@ const express = require("express");
 
 const transaction = express.Router();
 const transactionArray = require("../models/test/transaction");
-// const Model = require("../models/stretch/transaction");
 
 transaction.use("/:id", (req, res, next) => {
   let id = req.params.id;
@@ -94,27 +93,5 @@ transaction.delete("/:id", (req, res) => {
     res.status(404).redirect("/transaction-error");
   }
 });
-
-// DO MONGODB AS A STRETCH GOAL WITH SCHEMA AND MODEL \\
-// transaction.use("/:id", (req, res, next) => {
-//   Model.findById(req.params.id).then((transaction) => {
-//     if (transaction) {
-//       req.transaction = transaction;
-//       next();
-//     } else {
-//       res.status(404).send("No transaction with that id was found");
-//     }
-//   });
-// });
-
-// transaction.get("/", async (req, res) => {
-//   try {
-//     await Model.find({}).then((transactions) => {
-//       res.json(transactions);
-//     });
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// });
 
 module.exports = transaction;

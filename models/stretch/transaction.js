@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const transactionSchema = new mongoose.Schema({
-  itemName: {
+  item_name: {
     required: true,
     type: String,
   },
@@ -23,4 +23,27 @@ const transactionSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Transaction", transactionSchema);
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+
+  password: {
+    type: String,
+    required: true,
+  },
+
+  email: {
+    type: String,
+    required: true,
+    Uique: true,
+  },
+
+  transactions: [transactionSchema],
+});
+
+module.exports = {
+  Transaction: mongoose.model("Transaction", transactionSchema),
+  User: mongoose.model("User", userSchema),
+};
