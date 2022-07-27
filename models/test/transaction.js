@@ -31,7 +31,7 @@ module.exports = [
     item_name: "dog food",
     amount: -10,
     date: "1950-12-25",
-    from: "metro",
-    category: "transportation",
+    from: "supermarket",
+    category: "food",
   },
 ];
