@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    Uique: true,
+    unique: true,
   },
 
   transactions: [transactionSchema],
