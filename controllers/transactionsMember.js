@@ -3,6 +3,8 @@ const express = require("express");
 const transaction = express.Router();
 const { Transaction } = require("../models/stretch/transaction");
 
+// lol
+
 transaction.use("/transaction/:id", (req, res, next) => {
   const transactionID = Transaction.findById(req.params.id);
   if (!transactionID) {
